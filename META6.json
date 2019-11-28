@@ -1,0 +1,26 @@
+{
+  "name": "Sample::Blog",
+  "description": "A sample application of blog written using Cro",
+  "version": "1.0",
+  "perl": "6.*",
+  "auth": "github:Altai-man",
+  "depends": [
+    "Cro::HTTP",
+    "Cro::WebApp",
+    "Crypt::Argon2"
+  ],
+  "build-depends": [],
+  "test-depends": [
+    "Cro::HTTP::Test"
+  ],
+  "provides": {
+    "Blog::Database": "lib/Blog/Database.pm6",
+    "Blog::Routes": "lib/Blog/Routes.pm6",
+    "Blog::Routes::Auth": "lib/Blog/Routes/Auth.pm6",
+    "Blog::Routes::Blog": "lib/Blog/Routes/Blog.pm6",
+    "Blog::Session": "lib/Blog/Session.pm6"
+  },
+  "resources": [],
+  "license": "Artistic-2.0",
+  "source-url": "https://github.com/Altai-man/Sample::Blog"
+}

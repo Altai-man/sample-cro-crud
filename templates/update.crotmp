@@ -1,0 +1,23 @@
+<:use 'templates/base.crotmp'>
+<|page('Edit ' ~ .title, 'edit', 1)>
+  <div class="page-content">
+    <h2>Edit <.title></h2>
+    <form method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="form-control" id="title" value="<.title>" required>
+      </div>
+      <div class="form-group">
+        <label for="body">Body</label>
+        <textarea name="body" class="form-control" id="body"><.body></textarea>
+      </div>
+      <div style="padding-top: 10px">
+        <input type="submit" value="Save" class="btn btn-primary" />
+      </div>
+    </form>
+    <hr>
+    <form action="/blog/<.id>/delete" method="post">
+      <input class="danger" type="submit" value="Delete"">
+    </form>
+  </div>
+</|>

@@ -1,0 +1,48 @@
+<:macro page($title, $active, $logged-in)>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title><$title> - Cro</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <h1>Cro</h1>
+        <ul class="navbar-nav mr-auto">
+          <:sub nav-item($id, $title, $link)>
+            <li class="nav-item<?{ $active eq $id }> active</?>">
+              <a class="nav-link" href="<$link>">
+              <$title>
+              <?{ $active eq $id }> <span class="sr-only">(current)</span> </?>
+              </a>
+            </li>
+          </:>
+          <!{ $logged-in }>
+            <&nav-item('register', 'Register', '/auth/register')>
+            <&nav-item('login', 'Log In', '/auth/login')>
+          </!>
+          <?{ $logged-in }>
+            <&nav-item('posts', 'Posts', '/')>
+            <&nav-item('newpost', 'Create new post', '/blog/create')>
+            <&nav-item('logout', 'Log Out', '/auth/logout')>
+          </?>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-4">
+          <:body>
+        </div>
+        <div class="col"></div>
+       </div>
+    </div>
+  </body>
+</html>
+</:macro>

@@ -1,0 +1,20 @@
+<:use 'templates/base.crotmp'>
+<|page('Posts', 'posts', .user.logged-in)>
+  <div class="page-content">
+    <h2>Posts</h2>
+    <@posts : $post>
+    <article class="post">
+      <header>
+        <div>
+          <h1><$post.title></h1>
+          <span><$post.username>, <$post.created></span>
+        </div>
+        <?{ $post.author-id == .user.id }>
+            <a class="action" href="/blog/<$post.id>/update">Edit</a>
+        </?>
+      </header>
+      <p class="body"><$post.body></p>
+    </article>
+    </@>
+  </div>
+</|>

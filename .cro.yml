@@ -1,0 +1,15 @@
+---
+id: "Blog"
+cro: 1
+name: "Blog"
+endpoints:
+  -
+    id: http
+    name: HTTP
+    protocol: http
+    host-env: BLOG_HOST
+    port-env: BLOG_PORT
+links:  []
+entrypoint: service.p6
+env:  []
+...
