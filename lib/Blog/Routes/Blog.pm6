@@ -7,7 +7,7 @@ use Cro::WebApp::Template;
 sub blog-routes(Blog::Database $db) is export {
     route {
         get -> Blog::Session $session {
-            my $user = $session.logged-in ?? $db.get-user($session.user-id) !! {};
+            my $user = $session.logged-in ?? $db.get-user($session.user-id) !! { :id(-1) };
             $user<logged-in> = $session.logged-in;
             my $posts = $db.get-posts.map({
                 $_<created> = Date.new($_<created>).Str;
